@@ -1,3 +1,7 @@
+import {Div} from "../views/atoms/index.js"
+
 export const HomePage = () => {
-    console.log('Hej verden')
+    const div = Div()
+    div.innerHTML='Hej Verden'
+    return div
 }
