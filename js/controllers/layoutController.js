@@ -5,8 +5,8 @@ export const Layout = (title,content) => {
     document.title = title
     
     const arrNavItems = [
-        {href:'/index.htm#/produkter', title:'produkter'},
-        {href:'/index.htm#/cart', title:'indkøbskurv'},
+        {href:'/index.htm#/produkter', title:'Produkter'},
+        {href:'/index.htm#/cart', title:'Indkøbskurv'},
     ]
 
     const element = Fragment()
