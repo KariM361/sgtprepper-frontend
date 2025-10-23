@@ -10,7 +10,9 @@ export const request = async (url, method = 'GET', body) => {
         }
     try {
         const response = await fetch(url, options)
-        const result = await response.json()
+         const result = await response.json()
+        return result
+        
     } catch (error) {
         console.error();
         
