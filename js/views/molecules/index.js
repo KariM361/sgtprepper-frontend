@@ -13,10 +13,10 @@ export const NavBarView = arrNavItems => {
     const ul = Ul('flex')
 
     arrNavItems.forEach ( item => {
-    const {href, title} = item //destruct asignment
+    const {url, title} = item //destructure assignment
    
     const li = Li()
-    const item1 = Link(href, title)
+    const item1 = Link(url, title)
     li.append(item1)
     ul.append(li)
  });

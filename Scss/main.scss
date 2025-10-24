@@ -1,7 +1,7 @@
-//vaiabler colors
-$primary-color: #3498db;
-$secondary-color: #402ecc;
-$background-color: #f5f5f5;
 
 
 
+@use '../Scss/colors.scss' as *;
+header{
+    background-color: color: $Nav;
+}

@@ -4,6 +4,8 @@ import { getCategoryList } from "./categoryController.js";
 
 export const Layout = async (title,content) => {
     document.title = title
+   
+    
     const arrNavItems = await getCategoryList()
    
     const element = Fragment()
