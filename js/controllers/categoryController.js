@@ -8,7 +8,6 @@ export const getCategoryList = async () => {
         title: item.title,
         url: `/index.htm?category=${item.slug}`  
      }))
-     console.log(formattedCategories);
-     
+
     return formattedCategories
 }
