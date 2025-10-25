@@ -1,13 +1,23 @@
 //view til vores produkter
-import { Layout} from "../../controllers/layoutController.js";
-import { Div, Fragment } from "../atoms/index.js"
+import { Div, Fragment, Image } from "../atoms/index.js"
 
 
-export const productListView = (products) => {
-    const element = Div()
-    element.innerHTML = 'ProduktListe'
+export const ProductListView = (products) => {
+    const element = Fragment()
 
-    const Layout = Layout('Produkter', element)
-    return Layout
-    
+
+   
+    products.forEach(product => {
+        const{imageUrl,name, price, slug, stock, teaser} = product;
+       
+        const div = Div ()
+       const img = Image(`http//localhost:4000${imageUrl}`,name)
+
+       div.append(img)
+
+        element.append(div)
+
+    });
+
+    return element
 }
