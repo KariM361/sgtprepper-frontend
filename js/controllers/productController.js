@@ -5,6 +5,9 @@ import { Layout } from "./layoutController.js"
 export const ProductPage = async () => {
     const {category} = Object.fromEntries(new URLSearchParams(location.search));
     const data = await getList(category)
+    const html = productListView(data)
+
+return html
 
     
     const title = "Se vores produkter"
