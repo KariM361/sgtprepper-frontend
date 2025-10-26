@@ -1,3 +1,5 @@
+//her laves alt logikken.
+
 import { getList } from "../models/productModel.js"
 import { ProductListView} from "../views/organisms/productViews.js"
 import { Layout } from "./layoutController.js"
@@ -7,7 +9,13 @@ export const ProductPage = async () => {
 
     //bygger produkt liste
     const data = await getList(category)
-    const html = ProductListView(data)
+
+   const formattedProducts = data.map(item => ({
+        ...item,
+        stockText: item.stock ? 'På lager' : 'Forventes på lager indenfor 1-2 uger'
+    }));
+
+     const html = ProductListView(formattedProducts)
 
     //samler og returnerer side layoutet
     const layout = Layout('Produkter', html)

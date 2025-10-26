@@ -28,15 +28,22 @@ nav ul {
     gap: 20px;
     color: $grey-light;
     list-style: none;  // Fjerner bullets
-    padding: 0;        // Fjerner standard padding
-    margin: 0;         // Fjerner standard margin
+    padding: 0;        
+    margin: 0;         
 }
 
 nav ul li {
-    display: flex;     // Sikrer at li-elementene også er flex
+    display: flex;     // flexér li elementer
 }
 
 nav ul li a {
-    text-decoration: none;  // Fjerner understrekning på lenker
+    text-decoration: none;  
     color: $Nav;
+}
+Div{    
+    display: flex;
+    border: 1px solid $Black;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: space-between;
 }
