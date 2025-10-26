@@ -3,7 +3,7 @@ import { ProductListView} from "../views/organisms/productViews.js"
 import { Layout } from "./layoutController.js"
 
 export const ProductPage = async () => {
-    const {category = 'vand-og-vandrensning'} = Object.fromEntries(new URLSearchParams(location.search));
+    const {category = 'mad-og-langtidsopbevaring'} = Object.fromEntries(new URLSearchParams(location.search));
 
     //bygger produkt liste
     const data = await getList(category)
