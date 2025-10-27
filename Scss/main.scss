@@ -16,12 +16,13 @@ h3{
     font-size: 1.2rem;
 }
 
-body{
-    color: $Nav;
-}
 .flex{
   display: flex;
   gap: 20px;
+}
+nav{
+    background-color: $MainBlue;
+    padding: 10px 20px;
 }
 nav ul {
     display: flex;
@@ -46,4 +47,7 @@ Div{
     padding: 10px;
     border-radius: 5px;
     justify-content: space-between;
+}
+image{
+   
 }
