@@ -36,7 +36,7 @@ export const Link = (to, text = '', className = '') =>{
     element.innerText = text
     return element
 }
-export const Image = (src,title,vclassName = '') =>{
+export const Image = (src,title, className = '') =>{
 const element = document.createElement('img');
 element.src = src
 element.className = className
