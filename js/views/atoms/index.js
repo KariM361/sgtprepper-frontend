@@ -44,3 +44,33 @@ element.alt = title
 element.title = title
 return element
 }
+export const Form = (method = 'GET') =>{
+    const element = document.createElement('form');
+    element.method = method
+    return element
+}
+export const Label = (title, id, className = '') =>{
+    const element = document.createElement('label');
+    element.for = id //(for) sætter fokus på inputfeltet.
+    element.innerText = title
+    element.className =className
+  
+}
+export const Input = (name, placeholder, type = 'text', value = '', className = '' ) =>{
+    const element = document.createElement('input');
+    element.type = type
+    element.name = name
+    element.placeholder = placeholder
+    element.value = value
+    element.className = className
+   
+    return element
+
+}
+export const Button = (title, type = 'submit', className ='') =>{
+    const element = document.createElement('button');
+     element.type = type
+     element.textContent = title
+     element.className = className
+     return element
+}

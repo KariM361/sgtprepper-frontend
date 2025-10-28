@@ -1,10 +1,14 @@
-import { Heading } from '../atoms/index.js';
+import { Heading, Label } from '../atoms/index.js';
 import { Ul, Li, Link } from '../atoms/index.js';
 
 export const HeaderView = () => {
   const element = document.createElement('header');
   const h1 = Heading('sgt.Prepper');
   element.append(h1);
+  const p = Paragraph()
+  const a = Link('/index.htm#/login','Login' )
+  p.append(a)
+  element.append(p)
   return element;
 };
 
@@ -43,3 +47,11 @@ export const FooterView = () => {
   element.append(image);
   return element;
 };
+// FormGroup til at samle label og input
+export const FormGroup = (title, name, placeholder, type, value) => {
+  const element = Div()
+ const label = Label (title, name)
+ const input = Input (name, placeholder, type, value)
+ element.append(label, input)
+ return element
+}
