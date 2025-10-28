@@ -1,3 +1,5 @@
+
+
 export const Fragment = () =>{
     const element = document.createDocumentFragment()
     return element
@@ -49,14 +51,16 @@ export const Form = (method = 'GET') =>{
     element.method = method
     return element
 }
-export const Label = (title, id, className = '') =>{
+export const Label = (title, id, className = 'mr-4') =>{
     const element = document.createElement('label');
     element.for = id //(for) sætter fokus på inputfeltet.
     element.innerText = title
     element.className =className
+    
+    return element
   
 }
-export const Input = (name, placeholder, type = 'text', value = '', className = '' ) =>{
+export const Input = (name, placeholder, type = 'text', value = '', className = 'border rounded p-2' ) =>{
     const element = document.createElement('input');
     element.type = type
     element.name = name

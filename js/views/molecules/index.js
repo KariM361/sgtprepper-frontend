@@ -1,8 +1,9 @@
-import { Heading, Label } from '../atoms/index.js';
+import { Heading, Input, Label, Paragraph } from '../atoms/index.js';
 import { Ul, Li, Link } from '../atoms/index.js';
 
 export const HeaderView = () => {
   const element = document.createElement('header');
+  element.className = 'bg-sslate-700  p-4 text-white';
   const h1 = Heading('sgt.Prepper');
   element.append(h1);
   const p = Paragraph()
@@ -13,8 +14,8 @@ export const HeaderView = () => {
 };
 
 export const NavBarView = (arrNavItems) => {
-  const element = document.createElement('nav');
-  element.className = 'bg-sky-950';
+  const element = document.createElement ('nav');
+  element.className = 'p-4 min-h-60;';
   const ul = Ul('flex');
 
   arrNavItems.forEach((item) => {

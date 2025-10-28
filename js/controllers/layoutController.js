@@ -7,7 +7,7 @@ export const Layout = async (title,content) => {
    
     
     const arrNavItems = await getCategoryList()
-   
+    
     const element = Fragment()
     element.append(
         HeaderView(),

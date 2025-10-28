@@ -5,5 +5,5 @@ import { router } from './router/index.js';
 
 router({
   '/': () => ProductPage(), // Forside
-  '/login': () => LoginPage(), // Forside
+  '/login': () => LoginPage(), // Login side
  }, '#app');
