@@ -1,38 +1,60 @@
 //view til vores produkter
-import { Div, Fragment, Heading, Image, Paragraph } from "../atoms/index.js"
+import { price2Dkk } from '../../utils/index.js';
+import { Div, Fragment, Heading, Image, Paragraph } from '../atoms/index.js';
 
 // modtager en liste af produkter
 export const ProductListView = (products) => {
-    const element = Fragment()
-    
-    // looper igennem produkter
-     products.forEach(product => {
-        const{imageUrl,name, price, slug, stockText, stockClass, teaser} = product;
-             
-        const div = Div () //container for hvert produkt
-        const img = Image(`http://localhost:4000${imageUrl}`,name)
-        div.append(img)
+  const element = Fragment();
 
-        const info = Div() // viser info om produkt
-        const h2 = Heading (name,2)
-        const p = Paragraph()
-        p.innerHTML = teaser//Ses i konsollen
-        info.append(h2,p)
-        div.append(info)
+  // looper igennem produkter
+  products.forEach((product) => {
+    const { imageUrl, name, price, slug, stockText, stockClass, teaser } =
+      product;
 
-        const cost = Div()// viser pris
-        cost.innerText = price
+    const div = Div(); //container for hvert produkt
+    const img = Image(`http://localhost:4000${imageUrl}`, name);
+    div.append(img);
 
-        const stockElm = Paragraph(stockClass)// viser lager status
-        stockElm.innerText = stockText
-        cost.append(stockElm)
+    const info = Div(); // viser info om produkt
+    const h2 = Heading(name, 2);
+    const p = Paragraph();
+    p.innerHTML = teaser; //Ses i konsollen
+    info.append(h2, p);
+    div.append(info);
 
-        div.append(cost)
-       
-        
-        element.append(div)
+    const cost = Div('text-right border'); // viser pris
+    cost.innerText = price2Dkk(price);
 
-    });
+    const stockElm = Paragraph(stockClass); // viser lager status
+    stockElm.innerText = stockText;
+    cost.append(stockElm);
 
-    return element
-}
+    div.append(cost);
+
+    element.append(div);
+  });
+
+  return element;
+};
+export const ProductDetailsView = (product) => {
+  const { id, name, imageUrl, description, price } = product;
+  const element = Div('flex');
+  const img = Image(`http://localhost:4000${product.imageUrl}`, name);
+  element.append(img);
+
+  const div1 = Div();
+  const h3 = Heading(name, 3, 'font-bold');
+  div1.append(h3);
+
+  const p = Paragraph();
+  p.innerHTML = description;
+  div1.append(p);
+
+  const priceSection = Paragraph();
+  priceSection.innerHTML = price2Dkk(price);
+  priceSection.append(priceSection);
+
+  element.append(div1);
+
+  return element;
+};
