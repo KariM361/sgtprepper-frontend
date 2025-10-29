@@ -6,8 +6,10 @@ export const Layout = async (title,content) => {
     document.title = title
    
     
+    // Henter kategorier til navigationen (fx “Vand”, “Mad”, “Udstyr”)
     const arrNavItems = await getCategoryList()
     
+    // Laver et tomt HTML-element som vi kan fylde indhold i
     const element = Fragment()
     element.append(
         HeaderView(),
@@ -15,5 +17,6 @@ export const Layout = async (title,content) => {
         MainView(title,content),
         FooterView()
     )
+      // Returnerer hele layoutet klar til visning
 return element
 }

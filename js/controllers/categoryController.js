@@ -12,9 +12,9 @@ export const getCategoryList = async () => {
         slug: item.slug,
         title: item.title,
         url: `/index.htm?category=${item.slug}`,  
-        textColor:curCatergory === item.slug ? 'text-yellow-500' : 'text-white'
+        textColor:curCatergory === item.slug ? 'text-yellow-500':'text-white'
 
      }))
-
+       // Returnerer listen klar til brug i menuen
     return formattedCategories
 }
