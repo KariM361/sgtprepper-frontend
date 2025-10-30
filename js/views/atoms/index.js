@@ -42,6 +42,7 @@ export const Link = (to, text = '', className = '') => {
   const element = document.createElement('a');
   element.href = to;
   element.innerText = text;
+  element.className = className
   return element;
 };
 //laver et img element(billede)
@@ -68,7 +69,7 @@ export const Label = (
   className = "mr-4 inline block w-[120px] after:content-[':']"
 ) => {
   const element = document.createElement('label');
-  element.for = id; //(for) sætter fokus på inputfeltet.
+  element.htmlFor = id; //(for) sætter fokus på inputfeltet.
   element.innerText = title;
   element.className = className;
 
@@ -76,22 +77,17 @@ export const Label = (
 };
 
 // Laver et <input>-element (tekstfelt, passwordfelt osv.)
-export const Input = (
-  name,
-  placeholder,
-  type = 'text',
-  value = '',
-  className = 'border rounded p-2'
+export const Input = (name, placeholder, type = 'text', value = '', className = 'border rounded p-2'
 ) => {
   const element = document.createElement('input');
   element.type = type;
+  element.id = name;
   element.name = name;
   element.placeholder = placeholder;
   element.value = value;
   element.className = className;
   element.autocomplete = true; //browseren må foreslå tidliger input
   element.required = true; //feltet skal udfyldes
-
   return element;
 };
 
@@ -99,11 +95,11 @@ export const Input = (
 export const Button = (
   title,
   type = 'submit',
-  className = 'bg-green-500 px-3 py-2 rounded-lg shadow-md shadow-inset border'
+  className = ('bg-green-500 p-1 rounded shadow-md shadow-inset')
 ) => {
   const element = document.createElement('button');
   element.type = type;
-  element.textContent = title;
-  element.className = className;
+  element.textContent = title
+  element.className = className
   return element;
 };

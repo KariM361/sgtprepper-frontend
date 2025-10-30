@@ -1,42 +1,61 @@
 //view til vores produkter
 import { price2Dkk } from '../../utils/index.js';
-import { Div, Fragment, Heading, Image, Paragraph } from '../atoms/index.js';
+import {
+  Div,
+  Fragment,
+  Heading,
+  Image,
+  Link,
+  Paragraph,
+} from '../atoms/index.js';
 
 // modtager en liste af produkter
-export const ProductListView = (products) => {
+export const ProductListView = (products, category) => {
   const element = Fragment();
 
   // looper igennem produkter
   products.forEach((product) => {
+    //Destructure assignment fra product object
     const { imageUrl, name, price, slug, stockText, stockClass, teaser } =
       product;
-  
-      // laver elementet for hvert produkt
-    const div = Div('flex justify-between gap-4 p-4 border rounded-lg'); //container for hvert produkt
-    const img = Image(`http://localhost:4000${imageUrl}`, name,'max-w-[200px]');
-    div.append(img);
-   
+    //opretter link box element
+    const linkBox = Link(
+      `?category=${category}&product=${slug}`,
+      '',
+      'lg:flex md:block mb-4'
+    );
+
+    // laver elementet for hvert produkt
+    const imgCol = Div('flex justify-between gap-4 p-4 border rounded-lg'); //container for hvert produkt
+    const img = Image(
+      `http://localhost:4000${imageUrl}`,
+      name,
+      'max-w-[200px]'
+    );
+    imgCol.append(img);
+
     // produkt info
-    const info = Div(); // viser info om produkt
+    const infoCol = Div(); // viser info om produkt
     const h2 = Heading(name, 2);
     const p = Paragraph();
     p.innerHTML = teaser; //Ses i konsollen
-    info.append(h2, p);
-    div.append(info);
-    
+    infoCol.append(h2, p);
+
     // pris og lager status
-    const cost = Div('text-right border'); // viser pris
-    cost.innerText = price2Dkk(price);
-    
+    const priceCol = Div('text-right border'); // viser pris
+    const priceElm = Paragraph('font-bold text-lg mb-2');
+    priceElm.innerText = price2Dkk(price);
+    priceCol.append(priceElm);
+
     // lager status
     const stockElm = Paragraph(stockClass); // viser lager status
     stockElm.innerText = stockText;
-    cost.append(stockElm);
-    
+    priceCol.append(stockElm);
+
     // link til produkt detaljer
-    div.append(cost);
-   
-    element.append(div);
+    linkBox.append(imgCol, infoCol, priceCol);
+
+    element.append(linkBox);
   });
 
   return element;
@@ -47,17 +66,17 @@ export const ProductDetailsView = (product) => {
   const element = Div('flex');
   const img = Image(`http://localhost:4000${product.imageUrl}`, name);
   element.append(img);
-  
+
   // Produkt info
   const div1 = Div('flex-1 min-w-0');
   const h3 = Heading(name, 3, 'font-bold mb-2');
   div1.append(h3);
-  
+
   // Produkt beskrivelse
   const p = Paragraph();
   p.innerHTML = description;
   div1.append(p);
-  
+
   // Pris
   const priceSection = Paragraph();
   priceSection.innerHTML = price2Dkk(price);
