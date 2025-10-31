@@ -1,12 +1,18 @@
 
 
 import { Authenticate } from '../models/loginModel.js';
-import { setSessionItem } from '../services/auth.js';
+import { getToken, setToken} from '../services/auth.js';
 import { LoginFormView } from '../views/organisms/loginView.js';
 import { Layout } from './layoutController.js';
 
 //funktionen der laver hele Login-siden
 export const LoginPage = () => {
+    if(getToken()){
+        const token = getToken()
+        const html = UserInfoView(token.user)
+        return('Din side', html)
+    }
+    else { 
     //henter Login-formularen som et html-element
    const element = LoginFormView()
 
@@ -14,9 +20,12 @@ export const LoginPage = () => {
    element.addEventListener('submit', (e)=> {
     handleLogin(e)
    })
+
    //returnerer hele siden med layout og formular
     return Layout('Login', element)
+    }
 }
+
 //function der håndterer selve login-processen
 export const handleLogin = async (e) => {
  e.preventDefault()//stopper siden fra at reloade(standard for forms)
@@ -32,7 +41,8 @@ if(username && password) {
 const data = await Authenticate (username, password)
 
 if(data.accessToken){
-    setSessionItem('sgtprepper_token', data)
+   setToken (data)
+   location.href ='./index.htm'
 }
 
 } 
