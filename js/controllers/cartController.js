@@ -9,7 +9,7 @@ export const CartPage = async () => {
         location.href ='/index.htm#/login'
         return false
     }
-    cost data = await getcartList()
+    const data = await getcartList()
 
     const arrHeaderColums = [
         {name: 'Antal', className:'w-[10%] font-bold'},
