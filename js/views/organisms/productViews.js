@@ -4,6 +4,7 @@ import {Button, Div, Form, Fragment, Heading, Image,Input, Link, Paragraph} from
 
 // modtager en liste af produkter
 export const ProductListView = (products, category) => {
+  //opretter fragment(blank html tag)
   const element = Fragment();
 
   // looper igennem produkter
@@ -51,9 +52,10 @@ export const ProductDetailsView = (product) => {
   const { id, name, imageUrl, description, price } = product;
 
   const element = Div('flex justify-between gap-4 p-4 border rounded-lg');
-  const imgcol = Div (shrink-0 w-[300px])
+
+  const imagecol = Div ('shrink-0 w-[300px]')
   const img = Image(`http://localhost:4000${product.imageUrl}`, name);
-  imageCol.append(img);
+  imagecol.append(img);
 
   // Produkt info
   const infoCol = Div('flex-1 min-w-0');
@@ -76,7 +78,7 @@ export const ProductDetailsView = (product) => {
   const priceCol = Div('text-2xl')
   priceCol.innerHTML = price2Dkk(price)
 
-  element.append(imageCol,infoCol,priceCol)
+  element.append(imagecol,infoCol,priceCol)
   
 
   return element;
