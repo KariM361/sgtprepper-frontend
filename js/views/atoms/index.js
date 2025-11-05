@@ -1,16 +1,17 @@
 // Opretter et tomt fragment (en usynlig beholder til flere HTML-elementer)
 // Bruges når man vil samle flere elementer uden at lave et ekstra <div>
 export const Fragment = () => {
-    
   const element = document.createDocumentFragment();
   return element;
 };
+
 //laver et div element(kan få klasserr på via Tailwind eller css)
 export const Div = (className = '') => {
   const element = document.createElement('div');
   element.className = className;
   return element;
 };
+
 //laver et p element(afsnit)
 export const Paragraph = (className = '') => {
   const element = document.createElement('p');
@@ -63,16 +64,12 @@ export const Form = (method = 'GET') => {
 
 // Laver et <label>-element (etiket til formularfelt)
 // Som standard får den Tailwind-klasser og et ':' efter teksten
-export const Label = (
-  title,
-  id,
-  className = "mr-4 inline block w-[120px] after:content-[':']"
+export const Label = (title, id, className = "mr-4 inline block w-[120px] after:content-[':']"
 ) => {
   const element = document.createElement('label');
   element.htmlFor = id; //(for) sætter fokus på inputfeltet.
   element.innerText = title;
   element.className = className;
-
   return element;
 };
 
@@ -92,10 +89,7 @@ export const Input = (name, placeholder, type = 'text', value = '', className = 
 };
 
 // Laver et <button>-element (knap)
-export const Button = (
-  title,
-  type = 'submit',
-  className = ('bg-green-500 p-1 rounded shadow-md shadow-inset')
+export const Button = (title, type = 'submit', className = ('bg-green-500 px-3 rounded lg shadow-md shadow-inset border')
 ) => {
   const element = document.createElement('button');
   element.type = type;

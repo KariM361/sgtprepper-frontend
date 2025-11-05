@@ -1,15 +1,22 @@
-import { Div, Heading, Input, Label, Paragraph } from '../atoms/index.js';
-import { Ul, Li, Link } from '../atoms/index.js';
+import { cookieBanner } from '../controllers/cookieBannerController.js';
+import {Div, Heading,Input, Label,Paragraph, Ul, Li, Link } from '../atoms/index.js';
 
 export const HeaderView = () => {
   const element = document.createElement('header');
   element.className = 'bg-slate-700 p-4 text-white flex justify-between';
   const h1 = Heading('Sgt.Prepper');
   element.append(h1);
+
   const p = Paragraph()
   const a = Link('/index.htm#/login','Login', 'block bg-slate-400 px-3 py-2 rounded-lg border border-slate-800')
   p.append(a)
   element.append(p)
+
+  const cart = Paragraph()
+  const cartLink = Link ('/index.htm#/cart', 'Se kurv')
+  cart.append(cartLink)
+  element.append(cart)
+
   return element;
 };
 
@@ -36,6 +43,7 @@ export const MainView = (title, content) => {
   element.className = 'p-4 min-h-60 container m-auto flex-grow';
   const h1 = Heading(title);
   element.append(h1, content);
+  element.append(cookieBanner())
   return element;
 };
 
@@ -44,14 +52,16 @@ export const FooterView = () => {
   const image = document.createElement('img');
   image.src = 'images/Footer.png';
   element.append(image);
-  ElementInternals.className = 'mt-auto h-[168px] p-4 bg bg center bg-no-repeat';
+  element.className = 'mt-auto h-[168px] p-4 bg bg center bg-no-repeat';
   element.innerHTML = '&copy; TECHCOLLEGE 2025';
   element.append(image);
+
   return element;
 };
+
 // FormGroup til at samle label og input
 export const FormGroup = (title, name, placeholder, type, value) => {
-  const element = Div ()
+  const element = Div ('mb-4')
  const label = Label (title, name)
  const input = Input (name, placeholder, type, value)
  element.append(label, input)
