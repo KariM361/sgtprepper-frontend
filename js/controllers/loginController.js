@@ -2,7 +2,7 @@
 
 import { Authenticate } from '../models/loginModel.js';
 import { getToken, setToken} from '../services/auth.js';
-import { LoginFormView } from '../views/organisms/loginView.js';
+import { LoginFormView, UserInfoView } from '../views/organisms/loginView.js';
 import { Layout } from './layoutController.js';
 
 //funktionen der laver hele Login-siden
@@ -43,8 +43,5 @@ const data = await Authenticate (username, password)
 if(data.accessToken){
    setToken (data)
    location.href ='./index.htm'
-}
-
-} 
-
+}} 
 }

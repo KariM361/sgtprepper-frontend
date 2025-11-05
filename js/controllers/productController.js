@@ -1,34 +1,34 @@
 //her laves alt logikken.
-
+import { addToCart } from '../models/cartmodel.js';
 import { getDetails, getList } from '../models/productModel.js';
+import { isLoggedIn } from '../services/auth.js';
 import { ProductDetailsView, ProductListView } from '../views/organisms/productViews.js';
 import { Layout } from './layoutController.js';
 
 // Funktion der styrer hvilken produktside der skal vises
 export const ProductPage = async () => {
+  isLoggedIn()
+
 // Henter værdier fra URL'en (fx ?category=mad&product=123)
-  const { category = 'vand-og-vandrensning', product } = Object.fromEntries(
-    new URLSearchParams(location.search)
-  );
+  const { category = 'vand-og-vandrensning', product } = Object.fromEntries(new URLSearchParams(location.search));
   let html = '';
 
-   // Hvis der IKKE er valgt et specifikt produkt → vis produktliste
+// Hvis der IKKE er valgt et specifikt produkt → vis produktliste
   if (!product) {
     html = ProductList();
-  // Ellers → vis detaljer for det valgte produkt
+// Ellers → vis detaljer for det valgte produkt
   } else {
     html = ProductDetails(product);
   }
-  // Returnerer det færdige HTML-indhold til siden
+// Returnerer det færdige HTML-indhold til siden
   return html;
 };
 
 // Funktion der viser en liste af produkter indenfor en kategori
 export const ProductList = async () => {
+
 // Finder kategori fra URL’en (eller bruger standardkategori)
-  const { category = 'vand-og-vandrensning' } = Object.fromEntries(
-    new URLSearchParams(location.search)
-  );
+  const { category = 'vand-og-vandrensning' } = Object.fromEntries(new URLSearchParams(location.search));
 
 // Henter produktdata fra API’et
   const data = await getList(category);
@@ -51,11 +51,17 @@ export const ProductList = async () => {
 
 // Funktion der viser detaljer om ét specifikt produkt
 export const ProductDetails = async (product) => {
+
 // Henter detaljer om det valgte produkt fra API’et
   const data = await getDetails(product);
 
 // Laver HTML for produktdetaljerne
   const html = ProductDetailsView(data);
+  const form = html.querySelector('form')
+
+  form.addEventListener('submit', (e) => {
+    handleAddToCart(e)
+  })
 
   // Pakker ind i layout (uden titel)
   const layout = Layout('Produkt', html)
@@ -64,3 +70,14 @@ export const ProductDetails = async (product) => {
   return layout;
 };
 
+export const handleAddToCart = async (e) =>{
+  e.preventDefault()
+  const form = e.currentTarget
+
+  const productId = form.productId.value
+  const quantity = form.quantity.value
+
+  if(quantity && productId) {
+    const data = await addToCart(productId, quantity)
+  }
+}
