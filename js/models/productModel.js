@@ -12,6 +12,10 @@ export const getList = async (category) => {
     // Returnerer listen af produkter fra serveren
     return data
 }
+/**
+/  * henter detalje om et specifikt produkt.
+/ * @param {string} product- Produktets ID
+//  */
 
 export const getDetails = async (product) => {
      // Bygger URL’en til API’et for at hente ét produkt via dets ID
