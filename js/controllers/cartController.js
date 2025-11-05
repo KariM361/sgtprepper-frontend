@@ -34,7 +34,7 @@ const attachCartListEvents = (container) => {
     const deleteBtns = container.queryselectorAll('button[data-cartid]')
     deleteBtns.forEach(btn => {
     btn.addEventlistener('click',(e) => {
-        const carId = e.target.dataset.cartid 
+        const cartId = e.target.dataset.cartid 
         removeFromCart(cartId)
     })
     });
