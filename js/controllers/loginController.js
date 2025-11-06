@@ -2,14 +2,14 @@
 
 import { Authenticate } from '../models/loginModel.js';
 import { getToken, setToken} from '../services/auth.js';
-import { LoginFormView, UserInfoView } from '../views/organisms/loginView.js'; 
+import { LoginFormView, UserInfoView } from "../views/organisms/loginView.js";
 import { Layout } from './layoutController.js';
 
 //funktionen der laver hele Login-siden
 export const LoginPage = () => {
     if(getToken()){
         const token = getToken()
-        const html = UserInfoView(token.user)
+        const html = UserInfoView (token.user)
         return('Din side', html)
     }
     else { 

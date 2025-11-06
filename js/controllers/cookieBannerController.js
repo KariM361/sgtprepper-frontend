@@ -4,7 +4,6 @@ export const cookieBanner = () => {
     const KEY = 'cookieConsent'
     const getConsent = () => JSON.parse(localStorage.getItem(KEY)|| null)
     const setConsent = (c) => localStorage.setItem(KEY, JSON.stringify(c))
-    
     const saved = getConsent()
 
     const banner = cookieBannerView()
@@ -16,7 +15,7 @@ export const cookieBanner = () => {
         banner.style.display = 'block'
     }
 
-    all.addEventListener('click',()=> {
+    all.addEventListener('click', () => {
         setConsent({ accepted: true })
         banner.style.display = 'none'
     })

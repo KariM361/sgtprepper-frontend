@@ -11,7 +11,7 @@ export const LoginFormView = () => {
     return form
 }
 
-export const UserInforview = (user) => {
+export const UserInfoView = (user) => {
     const element = Paragraph()
     element.innerText = `Velkommen ${user.firstname} ${user.lastname}`
     const button = Button ('Logout','button')

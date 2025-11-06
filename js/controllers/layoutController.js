@@ -13,10 +13,10 @@ export const Layout = async (title,content) => {
     const element = Fragment()
 
     element.append(
-        HeaderView(),           //topfelt(logo, evt. login)
-        NavBarView(arrNavItems),//Menu med kategorier
-        MainView(title,content),//selve sidens indhold
-        FooterView()            // bundfeldt(footer)
+        HeaderView(),               //topfelt(logo, evt. login)
+        NavBarView(arrNavItems),    //Menu med kategorier
+        MainView(title,content),    //selve sidens indhold
+        FooterView()                // bundfeldt(footer)
     )
       // Returnerer hele layoutet klar til visning
 return element

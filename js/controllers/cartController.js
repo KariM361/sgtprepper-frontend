@@ -31,9 +31,9 @@ export const CartPage = async () => {
 }
 
 const attachCartListEvents = (container) => {
-    const deleteBtns = container.queryselectorAll('button[data-cartid]')
+    const deleteBtns = container.querySelectorAll('button[data-cartid]')
     deleteBtns.forEach(btn => {
-    btn.addEventlistener('click',(e) => {
+    btn.addEventListener('click',(e) => {
         const cartId = e.target.dataset.cartid 
         removeFromCart(cartId)
     })
