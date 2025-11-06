@@ -1,5 +1,5 @@
-import { cookieBanner } from '../controllers/cookieBannerController.js';
-import {Div, Heading,Input, Label,Paragraph, Ul, Li, Link } from '../atoms/index.js';
+import { cookieBanner } from '../../controllers/cookieBannerController.js';
+import {Div, Heading, Input, Label, Paragraph, Ul, Li, Link } from '../atoms/index.js';
 
 export const HeaderView = () => {
   const element = document.createElement('header');

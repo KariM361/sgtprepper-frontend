@@ -1,8 +1,8 @@
-import{getCartList, removeFromCart} from "../models/cartmodel.js"
-import { isLoggedIn } from "../services/auth.js"
-import{Div}from "../views/atoms/index.js"
-import{cartListHeaderView, cartListView, cartTotalView} from "../views/organisms/cartViews.js"
-import{Layout} from "./layoutController.js"
+import{ getcartList, removeFromCart } from "../models/cartmodel.js"
+import{ isLoggedIn } from "../services/auth.js"
+import{ Div }from "../views/atoms/index.js"
+import{ cartListHeaderView, cartListView, cartTotalView } from "../views/organisms/cartViews.js"
+import{ Layout } from "./layoutController.js"
 
 export const CartPage = async () => {
     if(!isLoggedIn()){
