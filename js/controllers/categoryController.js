@@ -5,8 +5,7 @@ export const getCategoryList = async () => {
   const url = new URL(window.location.href);
 
   // Tjekker hvilken kategori der er valgt — hvis ingen, bruges "vand-og-vandrensning"
-  const curCatergory =
-    url.searchParams.get('category') || 'vand-og-vandrensning';
+  const curCatergory = url.searchParams.get('category') || 'vand-og-vandrensning';
 
   // Henter alle kategorier fra API'et
   const data = await getList();

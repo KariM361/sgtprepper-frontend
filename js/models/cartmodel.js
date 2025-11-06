@@ -7,7 +7,7 @@ const url =`http://localhost:4000/api/cart`
  * @returns Array
  */
 
-export  const getcartList = async() => {
+export  const getCartList = async() => {
     try {
         const data = await request(url)
         if(data){

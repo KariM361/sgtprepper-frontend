@@ -1,7 +1,7 @@
-
+//Importerer funktioner og komponenter vi skal bruge
 
 import { Authenticate } from '../models/loginModel.js';
-import { getToken, setToken} from '../services/auth.js';
+import { getToken, setToken } from '../services/auth.js';
 import { LoginFormView, UserInfoView } from "../views/organisms/loginView.js";
 import { Layout } from './layoutController.js';
 
@@ -9,7 +9,7 @@ import { Layout } from './layoutController.js';
 export const LoginPage = () => {
     if(getToken()){
         const token = getToken()
-        const html = UserInfoView (token.user)
+        const html = UserInfoView(token.user)
         return('Din side', html)
     }
     else { 
@@ -40,7 +40,7 @@ if(username && password) {
     //kalder funktionen der tjekker login på serveren
 const data = await Authenticate (username, password)
 
-if(data.accessToken){
+if (data.accessToken){
    setToken (data)
    location.href ='./index.htm'
 }} 

@@ -1,4 +1,4 @@
-import{ Fragment} from "../views/atoms/index.js"
+import{ Fragment } from "../views/atoms/index.js"
 import { FooterView, HeaderView, MainView, NavBarView} from "../views/molecules/index.js"
 import { getCategoryList } from "./categoryController.js";
 

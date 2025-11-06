@@ -16,7 +16,8 @@ export const ProductPage = async () => {
 // Hvis der IKKE er valgt et specifikt produkt → vis produktliste
   if (!product) {
     html = ProductList();
-// Ellers → vis detaljer for det valgte produkt
+
+    // Ellers → vis detaljer for det valgte produkt
   } else {
     html = ProductDetails(product);
   }
@@ -34,11 +35,12 @@ export const ProductList = async () => {
   const data = await getList(category);
 
   // Tilføjer tekst og farve baseret på om produktet er på lager
-  const formattedProducts = data.map((item) => ({
+  const formattedProducts = data.map(item => ({
     ...item,
     stockText: item.stock ? 'På lager' : 'Forventes på lager indenfor 1-2 uger',
     stockClass: item.stock ? 'text-green-600' : 'text-red-600',
   }));
+
 // Laver HTML for produktlisten
   const html = ProductListView(formattedProducts, category);
 
@@ -64,7 +66,7 @@ export const ProductDetails = async (product) => {
   })
 
   // Pakker ind i layout (uden titel)
-  const layout = Layout('Produkt', html)
+  const layout = Layout('', html)
   
   // Returnerer hele siden klar til visning
   return layout;

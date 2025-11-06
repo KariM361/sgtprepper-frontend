@@ -1,6 +1,6 @@
-import{ getcartList, removeFromCart } from "../models/cartmodel.js"
+import{ getCartList, removeFromCart } from "../models/cartmodel.js"
 import{ isLoggedIn } from "../services/auth.js"
-import{ Div }from "../views/atoms/index.js"
+import{ Div } from "../views/atoms/index.js"
 import{ cartListHeaderView, cartListView, cartTotalView } from "../views/organisms/cartViews.js"
 import{ Layout } from "./layoutController.js"
 
@@ -9,7 +9,7 @@ export const CartPage = async () => {
         location.href ='/index.htm#/login'
         return false
     }
-    const data = await getcartList()
+    const data = await getCartList()
 
     const arrHeaderColums = [
         {name: 'Antal', className:'w-[10%] font-bold'},
@@ -27,7 +27,7 @@ export const CartPage = async () => {
     html.append(cartTotalView (totalPrice))
     attachCartListEvents (html)
     
-    return Layout('Indkøbskurv',html)
+    return Layout('Indkøbskurv', html)
 }
 
 const attachCartListEvents = (container) => {
