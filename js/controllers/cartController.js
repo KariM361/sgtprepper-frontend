@@ -22,10 +22,10 @@ export const CartPage = async () => {
     }, 0)
     
     const html = Div()
-    html.append(cartListHeaderView(arrHeaderColums))
-    html.append(cartListView(data))
-    html.append(cartTotalView(totalPrice))
-    attachCartListEvents(html)
+    html.append(cartListHeaderView (arrHeaderColums))
+    html.append(cartListView (data))
+    html.append(cartTotalView (totalPrice))
+    attachCartListEvents (html)
     
     return Layout('Indkøbskurv',html)
 }

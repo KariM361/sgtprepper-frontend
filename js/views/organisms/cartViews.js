@@ -46,7 +46,7 @@ export const cartListHeaderView = arrColumns => {
     return cartHeader
 }
 
-export const CartTotalView = totalPrice => {
+export const cartTotalView = totalPrice => {
     const totalRow = Div('flex gap-3 border-b border-t py-1 justify-between')
 
     const textCol = Div('w-[70%] font-bold')
