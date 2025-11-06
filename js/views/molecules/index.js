@@ -13,7 +13,7 @@ export const HeaderView = () => {
   element.append(p)
 
   const cart = Paragraph()
-  const cartLink = Link ('/index.htm#/cart', 'Se kurv')
+  const cartLink = Link ('./index.htm#/cart', 'Se kurv')
   cart.append(cartLink)
   element.append(cart)
 
@@ -49,13 +49,8 @@ export const MainView = (title, content) => {
 
 export const FooterView = () => {
   const element = document.createElement('footer');
-  const image = document.createElement('img');
-  image.src = 'images/Footer.png';
-  element.append(image);
-  element.className = 'mt-auto h-[168px] p-4 bg bg center bg-no-repeat';
+  element.className = 'mt-auto h-[168px] p-4 bg-[url(./images/footer-bg.svg)] bg center bg-no-repeat';
   element.innerHTML = '&copy; TECHCOLLEGE 2025';
-  element.append(image);
-
   return element;
 };
 

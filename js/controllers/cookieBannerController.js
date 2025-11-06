@@ -2,7 +2,7 @@ import { cookieBannerView } from "../views/organisms/cookieBannerView.js"
 
 export const cookieBanner = () => {
     const KEY = 'cookieConsent'
-    const getConsent = () => JSON.parse(localStorage.getItem(KEY)|| null)
+    const getConsent = () => JSON.parse(localStorage.getItem(KEY) || null)
     const setConsent = (c) => localStorage.setItem(KEY, JSON.stringify(c))
     const saved = getConsent()
 
