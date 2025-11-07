@@ -11,7 +11,7 @@ export const request = async (url, method = 'GET', body = {}) => {
       const token = getToken()
 
     // Tjekker om der skal sendes data med (kun ved fx POST eller PUT)
-        const hasBody = body !== null && method !== 'GET'
+        const hasBody = body !== undefined && body !== null && method !== 'GET'
 
      // Bygger de indstillinger, der skal sendes med i fetch-kaldet
         const options = {
@@ -41,7 +41,7 @@ export const request = async (url, method = 'GET', body = {}) => {
         } catch (error) {
 
         // Skriver fejl i konsollen, hvis der sker noget uventet (fx ingen forbindelse)
-        console.error();
+        console.error(error);
         
         }
     }

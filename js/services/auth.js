@@ -22,11 +22,11 @@ export const getToken = () => {
 }
 
 export const setToken = () =>{
-    return setSessionItem('sgtprepper_token', token) 
+    setSessionItem('sgtprepper_token', token) 
 }
 
 export const clearToken = () => {
-    return deleteSessionItem('sgtprepper_token') 
+    deleteSessionItem('sgtprepper_token') 
     location.reload()
 }
 
@@ -36,7 +36,7 @@ export const isTokenExpired = accessToken => {
 try {
     const payload = JSON.parse(atob(accessToken.split('.')[1]))
 
-    if (payload.exp&& payload.exp*1000 < Date.now()) {
+    if (payload.exp && payload.exp * 1000 < Date.now()) {
         //console.log(`Token expired: ${payload.exp * 1000)}`);
 
         return true

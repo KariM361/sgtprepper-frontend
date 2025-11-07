@@ -1,7 +1,7 @@
 import{ Button, Div} from "../atoms/index.js"
 
 export const cookieBannerView = () =>{
-    const overlay = Div ('fixed inset-0 z-[9998] bg-black/70 flex items-end md:items-center md:justify-center')
+    const overlay = Div ('fixed hidden inset-0 z-[9998] bg-black/70 flex items-end md:items-center md:justify-center')
     overlay.id = 'cookie-overlay'
     overlay.setAttribute('aria-hidden', 'false')
 
